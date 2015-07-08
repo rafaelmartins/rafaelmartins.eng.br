@@ -46,6 +46,8 @@ BLOGC_COMMAND = \
 		-D BASE_URL=$(BASE_URL) \
 	$(NULL)
 
+IS_POST = 0
+
 
 # Rules
 
@@ -58,6 +60,7 @@ LAST_PAGE = $(shell $(BLOGC_COMMAND) \
 
 all: \
 	$(OUTPUT_DIR)/index.html \
+	$(OUTPUT_DIR)/posts/index.html \
 	$(OUTPUT_DIR)/atom.xml \
 	$(addprefix $(OUTPUT_DIR)/, $(ASSETS)) \
 	$(addprefix $(OUTPUT_DIR)/post/, $(addsuffix /index.html, $(POSTS))) \
@@ -65,7 +68,7 @@ all: \
 	$(addprefix $(OUTPUT_DIR)/page/, $(addsuffix /index.html, \
 		$(shell for i in {1..$(LAST_PAGE)}; do echo $$i; done)))
 
-$(OUTPUT_DIR)/index.html: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/main.tmpl
+$(OUTPUT_DIR)/posts/index.html: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/main.tmpl
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT) \
 		-D FILTER_PAGE=1 \
@@ -107,6 +110,13 @@ $(OUTPUT_DIR)/%/index.html: content/%.txt templates/main.tmpl
 		-D DATE_FORMAT=$(DATE_FORMAT) \
 		-D MENU=$(MENU) \
 		$(shell test "$(IS_POST)" -eq 1 && echo -D IS_POST=1) \
+		-o $@ \
+		-t templates/main.tmpl \
+		$<
+
+$(OUTPUT_DIR)/index.html: content/index.txt templates/main.tmpl
+	$(BLOGC_COMMAND) \
+		-D DATE_FORMAT=$(DATE_FORMAT) \
 		-o $@ \
 		-t templates/main.tmpl \
 		$<

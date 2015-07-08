@@ -1,0 +1,14 @@
+----
+<div class="jumbotron">
+  <h1>Hi there!</h1>
+
+My name is Rafael Martins and this is my place on the web!
+
+As you come here, you may be interested in my [open source work](/projects/),
+in my [professional resume](/resume/), or in my [blog posts](/posts/).
+You can also learn more [about me](/about/) and get in touch, if you want. ;-)
+
+For nerds: the sources of this website are [publicly
+available](https://github.com/rafaelmartins/rafaelmartins.eng.br).
+
+</div>
