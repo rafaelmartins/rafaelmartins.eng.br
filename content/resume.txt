@@ -1,0 +1,20 @@
+TITLE: Resume
+-------------
+This is my "public" resume. Please do not redistribute it without first asking
+me.
+
+#### English
+
+* [Portable Document Format (PDF)](/resume/resume-en.pdf)
+* [HyperText Markup Language (HTML)](/resume/resume-en.html)
+* [reStructuredText (RST)](/resume/resume-en.txt)
+
+#### Portuguese (Brazil
+
+* [Portable Document Format (PDF)](/resume/resume-pt_br.pdf)
+* [HyperText Markup Language (HTML)](/resume/resume-pt_br.html)
+* [reStructuredText (RST)](/resume/resume-pt_br.txt)
+
+This resume makes use of the [Droid
+fonts](http://en.wikipedia.org/wiki/Droid_%28font%29), that are licensed under
+the [Apache License, Version 2.0](/assets/resume/fonts/README.txt).

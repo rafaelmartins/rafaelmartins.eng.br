@@ -16,18 +16,39 @@ POSTS = \
 
 PAGES = \
 	about \
+	resume \
+	$(NULL)
+
+RESUME_LANGUAGES = \
+	en \
+	pt_br \
+	$(NULL)
+
+RESUME_FONTS = \
+	assets/resume/fonts/DroidSans-Bold.ttf \
+	assets/resume/fonts/DroidSans.ttf \
 	$(NULL)
 
 ASSETS = \
 	assets/custom.css \
 	assets/img/creative-commons-88x31.png \
-	$(NULL)
+	assets/resume/fonts/DroidSans-Bold.ttf \
+	assets/resume/fonts/DroidSans.ttf \
+	assets/resume/fonts/README.txt \
+	assets/resume/html4css1.css \
+	assets/resume/resume.css \
+	assets/resume/resume.style \
+	$(RESUME_FONTS)
 
 
 # Arguments
 
 BLOGC ?= $(shell which blogc)
+RST2HTML ?= $(shell which rst2html.py)
+RST2PDF ?= $(shell which rst2pdf)
 INSTALL ?= $(shell which install)
+SED ?= $(shell which sed)
+
 OUTPUT_DIR ?= _build
 BASE_DOMAIN ?= http://rafaelmartins.eng.br
 BASE_URL ?=
@@ -46,8 +67,6 @@ BLOGC_COMMAND = \
 		-D BASE_URL=$(BASE_URL) \
 	$(NULL)
 
-IS_POST = 0
-
 
 # Rules
 
@@ -58,6 +77,8 @@ LAST_PAGE = $(shell $(BLOGC_COMMAND) \
 	-l \
 	$(addprefix content/post/, $(addsuffix .txt, $(POSTS))))
 
+IS_POST = 0
+
 all: \
 	$(OUTPUT_DIR)/index.html \
 	$(OUTPUT_DIR)/posts/index.html \
@@ -66,7 +87,11 @@ all: \
 	$(addprefix $(OUTPUT_DIR)/post/, $(addsuffix /index.html, $(POSTS))) \
 	$(addprefix $(OUTPUT_DIR)/, $(addsuffix /index.html, $(PAGES))) \
 	$(addprefix $(OUTPUT_DIR)/page/, $(addsuffix /index.html, \
-		$(shell for i in {1..$(LAST_PAGE)}; do echo $$i; done)))
+		$(shell for i in {1..$(LAST_PAGE)}; do echo $$i; done))) \
+	$(addprefix $(OUTPUT_DIR)/resume/resume-, $(addsuffix .txt, $(RESUME_LANGUAGES))) \
+	$(addprefix $(OUTPUT_DIR)/resume/resume-, $(addsuffix .html, $(RESUME_LANGUAGES))) \
+	$(addprefix $(OUTPUT_DIR)/resume/resume-, $(addsuffix .pdf, $(RESUME_LANGUAGES))) \
+	$(NULL)
 
 $(OUTPUT_DIR)/posts/index.html: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/main.tmpl
 	$(BLOGC_COMMAND) \
@@ -124,6 +149,25 @@ $(OUTPUT_DIR)/index.html: content/index.txt templates/main.tmpl
 $(OUTPUT_DIR)/assets/%: assets/%
 	$(INSTALL) -d -m 0755 $(dir $@) && \
 		$(INSTALL) -m 0644 $< $@
+
+$(OUTPUT_DIR)/resume/resume-%.txt: content/resume/resume-%.rst
+	$(INSTALL) -d -m 0755 $(dir $@) && \
+		$(INSTALL) -m 0644 $< $@
+
+$(OUTPUT_DIR)/resume/resume-%.html: content/resume/resume-%.rst
+	$(INSTALL) -d -m 0755 $(dir $@) && \
+		$(RST2HTML) --generator --date --time --cloak-email-addresses --source-link \
+			--link-stylesheet --initial-header-level=2 \
+			--source-url=$(BASE_URL)$(shell echo $< | $(SED) -e 's,^content/,/,' -e 's,\.rst$$,.txt,') \
+			--stylesheet=$(BASE_URL)/assets/resume/html4css1.css,$(BASE_URL)/assets/resume/resume.css \
+			--language=$(shell echo $< | $(SED) -e 's,content/resume/resume-\([^.-]\+\)\.rst,\1,') \
+			$< $@
+
+$(OUTPUT_DIR)/resume/resume-%.pdf: content/resume/resume-%.rst $(RESUME_FONTS)
+	$(INSTALL) -d -m 0755 $(dir $@) && \
+		$(RST2PDF) --stylesheets=assets/resume/resume.style --font-path=assets/resume/fonts \
+			--language=$(shell echo $< | $(SED) -e 's,content/resume/resume-\([^.-]\+\)\.rst,\1,') \
+			--output=$@ $<
 
 clean:
 	rm -rf "$(OUTPUT_DIR)"
