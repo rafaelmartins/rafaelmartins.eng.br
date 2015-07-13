@@ -1,0 +1,20 @@
+TITLE: Talk: Distfile patching support for Gentoo Linux
+-------------------------------------------------------
+
+#### Event
+
+Google Open Source Jam 3 - São Paulo/SP - Jun 23, 2011
+
+
+#### Language
+
+Brazilian Portuguese
+
+
+#### Presentation
+
+<script async class="speakerdeck-embed"
+    data-id="d70fbac02fc7013209142673290742c6"
+    data-ratio="1.33333333333333"
+    src="//speakerdeck.com/assets/embed.js">
+</script>

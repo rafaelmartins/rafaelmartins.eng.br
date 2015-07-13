@@ -17,6 +17,11 @@ POSTS = \
 PAGES = \
 	about \
 	resume \
+	talks \
+	talks/fisl15 \
+	talks/goj2011 \
+	talks/linuxcon2011 \
+	talks/pybr9 \
 	$(NULL)
 
 RESUME_LANGUAGES = \
@@ -125,7 +130,9 @@ $(OUTPUT_DIR)/atom.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) 
 		-t templates/atom.tmpl \
 		$(addprefix content/post/, $(addsuffix .txt, $(POSTS)))
 
-$(OUTPUT_DIR)/about/index.html: MENU = about
+$(OUTPUT_DIR)/about/%: MENU = about
+$(OUTPUT_DIR)/talks/%: MENU = talks
+$(OUTPUT_DIR)/resume/%: MENU = resume
 
 $(OUTPUT_DIR)/post/%/index.html: MENU = blog
 $(OUTPUT_DIR)/post/%/index.html: IS_POST = 1

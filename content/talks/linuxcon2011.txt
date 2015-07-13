@@ -1,0 +1,20 @@
+TITLE: Talk: Applications of Linux and Free Software in Engineering
+-------------------------------------------------------------------
+
+#### Event
+
+LinuxCon Brazil 2011 - São Paulo/SP - Nov 18, 2011
+
+
+#### Language
+
+Brazilian Portuguese
+
+
+#### Presentation
+
+<script async class="speakerdeck-embed"
+    data-id="25f078b02fc801327e4c42c106afd3ef"
+    data-ratio="1.33333333333333"
+    src="//speakerdeck.com/assets/embed.js">
+</script>
