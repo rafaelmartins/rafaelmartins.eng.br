@@ -41,6 +41,7 @@ RESUME_FONTS = \
 ASSETS = \
 	assets/custom.css \
 	assets/img/creative-commons-88x31.png \
+	assets/img/rafael.jpg \
 	assets/resume/fonts/DroidSans-Bold.ttf \
 	assets/resume/fonts/DroidSans.ttf \
 	assets/resume/fonts/README.txt \
