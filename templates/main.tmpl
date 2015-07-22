@@ -14,7 +14,7 @@
       <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="{{ BASE_URL }}/atom.xml" rel="alternate" type="application/atom+xml" title="{{ SITE_TITLE }}" />
+    <link href="{{ BASE_URL }}/atom/" rel="alternate" type="application/atom+xml" title="{{ SITE_TITLE }}" />
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -32,7 +32,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li{% if MENU == "blog" %} class="active"{% endif %}><a href="{{ BASE_URL }}/posts/">Blog</a></li>
             <li{% if MENU == "about" %} class="active"{% endif %}><a href="{{ BASE_URL }}/about/">About</a></li>
-            <li{% if MENU == "projects" %} class="active"{% endif %}><a href="{{ BASE_URL }}/projects/">Projects</a></li>
+            <li><a href="https://github.com/rafaelmartins">Projects</a></li>
             <li{% if MENU == "talks" %} class="active"{% endif %}><a href="{{ BASE_URL }}/talks/">Talks</a></li>
             <li{% if MENU == "resume" %} class="active"{% endif %}><a href="{{ BASE_URL }}/resume/">Resume</a></li>
           </ul>

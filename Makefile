@@ -9,6 +9,10 @@ LOCALE = "en_US.utf-8"
 POSTS_PER_PAGE = 10
 POSTS_PER_PAGE_ATOM = 10
 
+TAGS = \
+	gentoo \
+	$(NULL)
+
 POSTS = \
 	post2 \
 	post1 \
@@ -87,7 +91,8 @@ IS_POST = 0
 all: \
 	$(OUTPUT_DIR)/index.html \
 	$(OUTPUT_DIR)/posts/index.html \
-	$(OUTPUT_DIR)/atom.xml \
+	$(OUTPUT_DIR)/atom/index.xml \
+	$(addprefix $(OUTPUT_DIR)/atom/, $(addsuffix /index.xml, $(TAGS))) \
 	$(addprefix $(OUTPUT_DIR)/, $(ASSETS)) \
 	$(addprefix $(OUTPUT_DIR)/post/, $(addsuffix /index.html, $(POSTS))) \
 	$(addprefix $(OUTPUT_DIR)/, $(addsuffix /index.html, $(PAGES))) \
@@ -120,7 +125,7 @@ $(OUTPUT_DIR)/page/%/index.html: $(addprefix content/post/, $(addsuffix .txt, $(
 		-t templates/main.tmpl \
 		$(addprefix content/post/, $(addsuffix .txt, $(POSTS)))
 
-$(OUTPUT_DIR)/atom.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/atom.tmpl
+$(OUTPUT_DIR)/atom/index.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/atom.tmpl
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT_ATOM) \
 		-D FILTER_PAGE=1 \
@@ -129,6 +134,20 @@ $(OUTPUT_DIR)/atom.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) 
 		-o $@ \
 		-t templates/atom.tmpl \
 		$(addprefix content/post/, $(addsuffix .txt, $(POSTS)))
+
+$(OUTPUT_DIR)/atom/gentoo/index.xml: TAG = gentoo
+
+$(OUTPUT_DIR)/atom/%/index.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/atom.tmpl
+	$(BLOGC_COMMAND) \
+		-D DATE_FORMAT=$(DATE_FORMAT_ATOM) \
+		-D FILTER_PAGE=1 \
+		-D FILTER_TAG=$(TAG) \
+		-D FILTER_PER_PAGE=$(POSTS_PER_PAGE_ATOM) \
+		-l \
+		-o $@ \
+		-t templates/atom.tmpl \
+		$(addprefix content/post/, $(addsuffix .txt, $(POSTS)))
+
 
 $(OUTPUT_DIR)/about/%: MENU = about
 $(OUTPUT_DIR)/talks/%: MENU = talks
