@@ -14,8 +14,7 @@ TAGS = \
 	$(NULL)
 
 POSTS = \
-	post2 \
-	post1 \
+	hello-world \
 	$(NULL)
 
 PAGES = \

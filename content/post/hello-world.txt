@@ -1,0 +1,22 @@
+TITLE: Hello, World!
+DATE: 2015-07-22 06:45:00
+TAGS: gentoo
+-------------------------
+Hi all,
+
+I'm starting a new blog!
+
+Actually, it is almost the same blog, but powered by a new "blogging engine",
+and I don't want to spend time migrating the old posts, that are mostly
+outdated right now.
+
+The old content is archived here, if you need it due to some crazy reason:
+[[http://old.rafaelmartins.eng.br/]].
+
+For Gentoo planet readers, everything should be working just fine. I created
+rewrite rules to keep the old atom feeds working.
+
+I'll publish another blog post soon, talking about the "blogging engine" and
+my next plans.
+
+Thanks.
