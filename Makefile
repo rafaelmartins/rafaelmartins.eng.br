@@ -19,6 +19,7 @@ POSTS = \
 
 PAGES = \
 	about \
+	projects \
 	resume \
 	talks \
 	talks/fisl15 \
@@ -151,6 +152,7 @@ $(OUTPUT_DIR)/atom/%/index.xml: $(addprefix content/post/, $(addsuffix .txt, $(P
 
 $(OUTPUT_DIR)/about/%: MENU = about
 $(OUTPUT_DIR)/talks/%: MENU = talks
+$(OUTPUT_DIR)/projects/%: MENU = projects
 $(OUTPUT_DIR)/resume/%: MENU = resume
 
 $(OUTPUT_DIR)/post/%/index.html: MENU = blog

@@ -1,0 +1,12 @@
+TITLE: Projects
+---------------
+I'm always working on open-source projects, mostly just for fun. The bigger
+projects are hosted on their own GitHub organizations:
+
+- [balde](https://github.com/balde)
+- [blogc](https://github.com/blogc)
+
+All the other projects, proofs of concepts and code snippets are hosted on my
+GitHub account:
+
+- [rafaelmartins](https://github.com/rafaelmartins)
