@@ -104,7 +104,7 @@ all: \
 	$(addprefix $(OUTPUT_DIR)/resume/resume-, $(addsuffix .pdf, $(RESUME_LANGUAGES))) \
 	$(NULL)
 
-$(OUTPUT_DIR)/posts/index.html: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/main.tmpl
+$(OUTPUT_DIR)/posts/index.html: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/main.tmpl Makefile
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT) \
 		-D FILTER_PAGE=1 \
@@ -115,7 +115,7 @@ $(OUTPUT_DIR)/posts/index.html: $(addprefix content/post/, $(addsuffix .txt, $(P
 		-t templates/main.tmpl \
 		$(addprefix content/post/, $(addsuffix .txt, $(POSTS)))
 
-$(OUTPUT_DIR)/page/%/index.html: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/main.tmpl
+$(OUTPUT_DIR)/page/%/index.html: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/main.tmpl Makefile
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT) \
 		-D FILTER_PAGE=$(shell echo $@ | sed -e 's,^$(OUTPUT_DIR)/page/,,' -e 's,/index\.html$$,,')\
@@ -126,7 +126,7 @@ $(OUTPUT_DIR)/page/%/index.html: $(addprefix content/post/, $(addsuffix .txt, $(
 		-t templates/main.tmpl \
 		$(addprefix content/post/, $(addsuffix .txt, $(POSTS)))
 
-$(OUTPUT_DIR)/atom/index.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/atom.tmpl
+$(OUTPUT_DIR)/atom/index.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/atom.tmpl Makefile
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT_ATOM) \
 		-D FILTER_PAGE=1 \
@@ -138,7 +138,7 @@ $(OUTPUT_DIR)/atom/index.xml: $(addprefix content/post/, $(addsuffix .txt, $(POS
 
 $(OUTPUT_DIR)/atom/gentoo/index.xml: TAG = gentoo
 
-$(OUTPUT_DIR)/atom/%/index.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/atom.tmpl
+$(OUTPUT_DIR)/atom/%/index.xml: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/atom.tmpl Makefile
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT_ATOM) \
 		-D FILTER_PAGE=1 \
@@ -158,7 +158,7 @@ $(OUTPUT_DIR)/resume/%: MENU = resume
 $(OUTPUT_DIR)/post/%/index.html: MENU = blog
 $(OUTPUT_DIR)/post/%/index.html: IS_POST = 1
 
-$(OUTPUT_DIR)/%/index.html: content/%.txt templates/main.tmpl
+$(OUTPUT_DIR)/%/index.html: content/%.txt templates/main.tmpl Makefile
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT) \
 		-D MENU=$(MENU) \
@@ -167,22 +167,22 @@ $(OUTPUT_DIR)/%/index.html: content/%.txt templates/main.tmpl
 		-t templates/main.tmpl \
 		$<
 
-$(OUTPUT_DIR)/index.html: content/index.txt templates/main.tmpl
+$(OUTPUT_DIR)/index.html: content/index.txt templates/main.tmpl Makefile
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT) \
 		-o $@ \
 		-t templates/main.tmpl \
 		$<
 
-$(OUTPUT_DIR)/assets/%: assets/%
+$(OUTPUT_DIR)/assets/%: assets/% Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
 		$(INSTALL) -m 0644 $< $@
 
-$(OUTPUT_DIR)/resume/resume-%.txt: content/resume/resume-%.rst
+$(OUTPUT_DIR)/resume/resume-%.txt: content/resume/resume-%.rst Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
 		$(INSTALL) -m 0644 $< $@
 
-$(OUTPUT_DIR)/resume/resume-%.html: content/resume/resume-%.rst
+$(OUTPUT_DIR)/resume/resume-%.html: content/resume/resume-%.rst Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
 		$(RST2HTML) --generator --date --time --cloak-email-addresses --source-link \
 			--link-stylesheet --initial-header-level=2 \
@@ -191,7 +191,7 @@ $(OUTPUT_DIR)/resume/resume-%.html: content/resume/resume-%.rst
 			--language=$(shell echo $< | $(SED) -e 's,content/resume/resume-\([^.-]\+\)\.rst,\1,') \
 			$< $@
 
-$(OUTPUT_DIR)/resume/resume-%.pdf: content/resume/resume-%.rst $(RESUME_FONTS)
+$(OUTPUT_DIR)/resume/resume-%.pdf: content/resume/resume-%.rst $(RESUME_FONTS) Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
 		$(RST2PDF) --stylesheets=assets/resume/resume.style --font-path=assets/resume/fonts \
 			--language=$(shell echo $< | $(SED) -e 's,content/resume/resume-\([^.-]\+\)\.rst,\1,') \
