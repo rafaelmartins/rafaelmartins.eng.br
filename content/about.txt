@@ -5,8 +5,8 @@ TITLE: About
 My name is Rafael Goncalves Martins. I'm a Control and Automation engineer,
 programmer and open-source developer.
 
-I'm currently working for [Titans Group](http://titansgroup.com.br/), as
-Software Architect.
+I'm currently working for [Red Hat](http://www.redhat.com/), as
+Software Engineer.
 
 I spend almost all my free time playing with open-source stuff. The main
 projects I'm working on are [Gentoo Linux](http://www.gentoo.org/),
@@ -20,7 +20,6 @@ Brazil.
 
 - **Email (Personal stuff)**: rafael [at] rafaelmartins [dot] eng [dot] br
 - **Email (Gentoo-related stuff)**: rafaelmartins [at] gentoo [dot] org
-- **Email (Work-related stuff)**: rafael.martins [at] titansgroup [dot] com [dot] br
 - **IRC**: rafaelmartins [at] irc.{freenode,oftc}.net
 - **Twitter**: [[http://twitter.com/rafaelmartins/]]
 - **PGP key**: [E894ABDE](http://pgp.mit.edu/pks/lookup?op=get&search=0x3EF74952E894ABDE)
