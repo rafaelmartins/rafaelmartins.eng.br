@@ -1,5 +1,5 @@
 TITLE: blogc, a blog compiler
-DATE: 2015-07-27 00:00:00
+DATE: 2015-09-20 13:20:00
 TAGS: gentoo, blogc
 -----------------------------
 So, this is a follow-up for my [previous post](/post/hello-world/), about my
