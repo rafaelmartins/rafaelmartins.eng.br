@@ -20,6 +20,7 @@ Brazil.
 
 - **Email (Personal stuff)**: rafael [at] rafaelmartins [dot] eng [dot] br
 - **Email (Gentoo-related stuff)**: rafaelmartins [at] gentoo [dot] org
+- **Email (Work-related stuff)**: rmartins [at] redhat [dot] com
 - **IRC**: rafaelmartins [at] irc.{freenode,oftc}.net
 - **Twitter**: [[http://twitter.com/rafaelmartins/]]
 - **PGP key**: [E894ABDE](http://pgp.mit.edu/pks/lookup?op=get&search=0x3EF74952E894ABDE)
