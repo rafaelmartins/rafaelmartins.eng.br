@@ -1,0 +1,135 @@
+TITLE: blogc, a blog compiler
+DATE: 2015-07-27 00:00:00
+TAGS: gentoo, blogc
+-----------------------------
+So, this is a follow-up for my [previous post](/post/hello-world/), about my
+"new blog".
+
+I promissed to write something about the "new blogging engine" that runs it,
+and my plan was to finish some documentation and release a first "stable"
+version of the project before writing this post. And surprisingly it is
+ready!
+
+After a few beta versions, mainly to verify build system and packaging, I
+released the first "stable" version a few days ago, with some simple
+documentation (man pages) and all the features required for basic usage.
+
+This blog is powered by [blogc](http://blogc.org/), that is a blog compiler.
+It works like an usual source code compiler, converting input files written
+in a custom input language into a target file, based on a template. It can
+generate almost any resource file needed by a website/blog as target file,
+depending on the template used, like posts, pages, feeds, sitemaps, etc.
+
+
+#### Hmm, but this isn't similar to what [put your favorite static site generator here] does?!
+
+Yeah, it is, indeed. But blogc was developed to be:
+
+1. Stateless and idempotent: no global state is shared by the binary between
+   compiler calls, and compiler calls with the same arguments should always
+   generate the same output. The compiler should not need to manage what
+   needs to be rebuilt or not, this is a job for a build tool like ```make```.
+2. Fast: the compiler should be able to generate a complex target file in a
+   few miliseconds, making it easy to regenerate the full website/blog
+   whenever needed. This is a feature required by another component of this
+   project, that I'll introduce in another post.
+3. Simple: Both the source and template syntaxes are simple enough to be
+   learned quickly, and are specific for this use case.
+3. Easy to host: it produces static files, that can be hosted anywhere.
+
+
+#### And why create another blog-related project?!
+
+As most of the people who read this blog knows, I like to research and
+implement stuff related to personal content publishing, despite not being a
+frequent blogger. This time I wanted to put in practice some concepts I had in
+mind for some time, and play with handwritten parsers.
+
+This project is built around 3 parsers, that are basically state machines.
+The parsers are heavily inspired by [nodejs' http parser]
+(https://github.com/joyent/http-parser), that is inspired by
+[nginx's http-parser]
+(http://hg.nginx.org/nginx/file/default/src/http/ngx_http_parse.c). This
+"methodology" of building parsers make it easy to create fast and memory
+efficient parsers.
+
+blogc is totally implemented in C99, without any external dependencies.
+
+blogc comes with a somewhat complete unit test suite, that depends on
+[cmocka](https://cmocka.org/). Obviously, users who don't want to run the test
+suite don't need to install cmocka.
+
+I'll provide more implementation details in a future post.
+
+
+#### OK, how can I install it?! :D
+
+Gentoo users can install blogc from the main package tree. Please note that
+the package is keyworded for ```~x86``` and ```~amd64```:
+
+    # emerge -av app-text/blogc
+
+Fedora users, and users of other Linux distributions that support the
+[EPEL repository](https://fedoraproject.org/wiki/EPEL), can install it from my
+[Copr repository](https://copr.fedoraproject.org/coprs/rafaelmartins/blogc/).
+
+After enabling this repository, just type:
+
+    # yum install blogc
+
+I have plans to package it for Ubuntu/Debian, but this is low priority right
+now.
+
+Users without access to prebuilt packages can install blogc from source. Just
+visit [[http://blogc.org]], download a source tarball, extract it and build.
+It is an autotools project, that builds with the usual command combo:
+
+    $ ./configure
+    $ make
+    # make install
+
+
+#### And how can I get started with blogc?
+
+The [website](http://blogc.org) contains lots of useful information.
+
+With blogc installed, you can read man pages:
+[```blogc(1)```](http://blogc.org/man/blogc.1.html),
+[```blogc-source(7)```](http://blogc.org/man/blogc-source.7.html) and
+[```blogc-template(7)```](http://blogc.org/man/blogc-template.7.html). They
+are also available in the website.
+
+You can also use our [example website]
+(https://github.com/blogc/blogc-example) as base for your own website. It
+is very simple, but should be a good start point:
+
+    $ git clone https://github.com/blogc/blogc-example.git my-blog
+    $ cd my-blog
+    $ rm -rf .git
+    $ git init .
+    $ git add .
+    $ git commit -m 'My new blog, initialized from blogc-example'
+
+The example website uses a Makefile to build the website. Reading this
+Makefile is a good way to learn about how blogc works. This Makefile just
+works with GNU Make, but users should be able to write a Makefile that works
+with any Make implemantation that follows POSIX standards, if wanted. Users
+can also use task runners like Grunt, if they know how to make it call blogc
+properly. :-)
+
+
+#### What the name "blogc" means?
+
+"blogc" stands for "blog compiler". The name has nothing to do with the
+programming language used to implement it. ;-)
+
+
+#### And what about blohg? It was abandoned?
+
+I'm still maintaining it, and it seems to be stable enough for general usage
+at this point. Feel free to contact me if you find some bug on it.
+
+
+That's it for now.
+
+I hope you like blogc!

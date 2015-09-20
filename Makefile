@@ -14,6 +14,7 @@ TAGS = \
 	$(NULL)
 
 POSTS = \
+	blogc-a-blog-compiler \
 	hello-world \
 	$(NULL)
 
