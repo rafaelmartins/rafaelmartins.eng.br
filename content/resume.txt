@@ -9,7 +9,7 @@ me.
 * [HyperText Markup Language (HTML)](/resume/resume-en.html)
 * [reStructuredText (RST)](/resume/resume-en.txt)
 
-#### Portuguese (Brazil
+#### Portuguese (Brazil)
 
 * [Portable Document Format (PDF)](/resume/resume-pt_br.pdf)
 * [HyperText Markup Language (HTML)](/resume/resume-pt_br.html)
