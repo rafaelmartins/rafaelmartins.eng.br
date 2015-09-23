@@ -18,10 +18,10 @@ Bachelor's Degree: Control and Automation Engineering.
 Relevant experience
 -------------------
 
-Development Architect, Titans Group, *2013 - present*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Software Engineer, Red Hat, *2015 - present*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Software architecture and development (Python)
+- Member of *Red Hat Enterprise Virtualization Manager* integration team.
 
 
 Developer (volunteer), Gentoo Linux, *2010 - present*
@@ -30,6 +30,12 @@ Developer (volunteer), Gentoo Linux, *2010 - present*
 - Maintain packages of the following herds: sci-electronics, sci-mathematics,
   python
 - Maintain random packages of several categories
+
+
+Development Architect, Titans Group, *2013 - 2015*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Software architecture and development (Python)
 
 
 Mentor (volunteer, Google Summer of Code), Google Inc., *2013*
@@ -48,6 +54,11 @@ Software Engineer, Collabora Ltd., *2012*
 - Quality assurance
 
 
+.. raw:: pdf
+
+   PageBreak
+
+
 Project Analist, Siemens Ltda, *2011 - 2012*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -55,11 +66,6 @@ Project Analist, Siemens Ltda, *2011 - 2012*
 
 .. _HMI: http://en.wikipedia.org/wiki/Human_machine_interface
 .. _PLC: http://en.wikipedia.org/wiki/Programmable_logic_controller
-
-
-.. raw:: pdf
-
-   PageBreak
 
 
 Developer (Google Summer of Code), Google Inc., *2011*

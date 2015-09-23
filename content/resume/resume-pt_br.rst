@@ -18,10 +18,10 @@ Curso: Engenharia de Controle e Automação.
 Experiência relevante
 ---------------------
 
-Arquiteto de desenvolvimento, Titans Group, *2013 - presente*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Engenheiro de software, Red Hat, *2015 - presente*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Arquitetura e desenvolvimento de software (Python)
+- Membro da equipe de integração do *Red Hat Enterprise Virtualization Manager*.
 
 
 Desenvolvedor (voluntário), Gentoo Linux, *2010 - presente*
@@ -30,6 +30,12 @@ Desenvolvedor (voluntário), Gentoo Linux, *2010 - presente*
 - Mantém pacotes dos seguintes *herds*: sci-electronics, sci-mathematics,
   python
 - Mantém pacotes aleatórios de várias categorias
+
+
+Arquiteto de desenvolvimento, Titans Group, *2013 - 2015*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Arquitetura e desenvolvimento de software (Python)
 
 
 Orientador (voluntário, Google Summer of Code), Google Inc., *2013*
@@ -48,6 +54,11 @@ Engenheiro de Software, Collabora Ltd., *2012*
 - Garantia de qualidade
 
 
+.. raw:: pdf
+
+   PageBreak
+
+
 Analista de projetos, Siemens Ltda, *2011 - 2012*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -55,11 +66,6 @@ Analista de projetos, Siemens Ltda, *2011 - 2012*
 
 .. _IHM: http://pt.wikipedia.org/wiki/Interface_homem-m%C3%A1quina
 .. _CLP: http://pt.wikipedia.org/wiki/Controlador_l%C3%B3gico_program%C3%A1vel
-
-
-.. raw:: pdf
-
-   PageBreak
 
 
 Desenvolvedor (Google Summer of Code), Google Inc., *2011*
