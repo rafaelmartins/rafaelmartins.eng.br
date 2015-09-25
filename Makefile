@@ -55,7 +55,7 @@ ASSETS = \
 # Arguments
 
 BLOGC ?= $(shell which blogc)
-RST2HTML ?= $(shell which rst2html.py)
+RST2HTML ?= $(shell which rst2html.py rst2html 2> /dev/null)
 RST2PDF ?= $(shell which rst2pdf)
 INSTALL ?= $(shell which install)
 SED ?= $(shell which sed)
