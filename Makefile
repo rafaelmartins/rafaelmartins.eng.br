@@ -177,11 +177,11 @@ $(OUTPUT_DIR)/index.html: content/index.txt templates/main.tmpl Makefile
 
 $(OUTPUT_DIR)/assets/%: assets/% Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
-		$(INSTALL) -m 0644 $< $@
+		$(INSTALL) -Z -m 0644 $< $@
 
 $(OUTPUT_DIR)/resume/resume-%.txt: content/resume/resume-%.rst Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
-		$(INSTALL) -m 0644 $< $@
+		$(INSTALL) -Z -m 0644 $< $@
 
 $(OUTPUT_DIR)/resume/resume-%.html: content/resume/resume-%.rst Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
