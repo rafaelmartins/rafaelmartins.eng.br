@@ -58,6 +58,7 @@ BLOGC ?= $(shell which blogc)
 RST2HTML ?= $(shell which rst2html.py rst2html 2> /dev/null)
 RST2PDF ?= $(shell which rst2pdf)
 INSTALL ?= $(shell which install)
+CP ?= $(shell which cp)
 SED ?= $(shell which sed)
 
 OUTPUT_DIR ?= _build
@@ -177,11 +178,11 @@ $(OUTPUT_DIR)/index.html: content/index.txt templates/main.tmpl Makefile
 
 $(OUTPUT_DIR)/assets/%: assets/% Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
-		$(INSTALL) -Z -m 0644 $< $@
+		$(CP) $< $@
 
 $(OUTPUT_DIR)/resume/resume-%.txt: content/resume/resume-%.rst Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
-		$(INSTALL) -Z -m 0644 $< $@
+		$(CP) $< $@
 
 $(OUTPUT_DIR)/resume/resume-%.html: content/resume/resume-%.rst Makefile
 	$(INSTALL) -d -m 0755 $(dir $@) && \
