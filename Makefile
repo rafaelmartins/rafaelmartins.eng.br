@@ -119,7 +119,7 @@ $(OUTPUT_DIR)/posts/index.html: $(addprefix content/post/, $(addsuffix .txt, $(P
 $(OUTPUT_DIR)/page/%/index.html: $(addprefix content/post/, $(addsuffix .txt, $(POSTS))) templates/main.tmpl Makefile
 	$(BLOGC_COMMAND) \
 		-D DATE_FORMAT=$(DATE_FORMAT) \
-		-D FILTER_PAGE=$(shell echo $@ | sed -e 's,^$(OUTPUT_DIR)/page/,,' -e 's,/index\.html$$,,')\
+		-D FILTER_PAGE=$(shell echo $@ | sed -e 's,^$(OUTPUT_DIR)/page/,,' -e 's,/index\.html$$,,') \
 		-D FILTER_PER_PAGE=$(POSTS_PER_PAGE) \
 		-D MENU=blog \
 		-l \
