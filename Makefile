@@ -57,9 +57,10 @@ ASSETS = \
 BLOGC ?= $(shell which blogc)
 RST2HTML ?= $(shell which rst2html.py rst2html 2> /dev/null)
 RST2PDF ?= $(shell which rst2pdf)
-INSTALL ?= $(shell which install)
+MKDIR ?= $(shell which mkdir)
 CP ?= $(shell which cp)
 SED ?= $(shell which sed)
+RM ?= $(shell which rm)
 
 OUTPUT_DIR ?= _build
 BASE_DOMAIN ?= http://rafaelmartins.eng.br
@@ -177,15 +178,15 @@ $(OUTPUT_DIR)/index.html: content/index.txt templates/main.tmpl Makefile
 		$<
 
 $(OUTPUT_DIR)/assets/%: assets/% Makefile
-	$(INSTALL) -d -m 0755 $(dir $@) && \
+	$(MKDIR) -p $(dir $@) && \
 		$(CP) $< $@
 
 $(OUTPUT_DIR)/resume/resume-%.txt: content/resume/resume-%.rst Makefile
-	$(INSTALL) -d -m 0755 $(dir $@) && \
+	$(MKDIR) -p $(dir $@) && \
 		$(CP) $< $@
 
 $(OUTPUT_DIR)/resume/resume-%.html: content/resume/resume-%.rst Makefile
-	$(INSTALL) -d -m 0755 $(dir $@) && \
+	$(MKDIR) -p $(dir $@) && \
 		$(RST2HTML) --generator --date --time --cloak-email-addresses --source-link \
 			--link-stylesheet --initial-header-level=2 \
 			--source-url=$(BASE_URL)$(shell echo $< | $(SED) -e 's,^content/,/,' -e 's,\.rst$$,.txt,') \
@@ -194,12 +195,12 @@ $(OUTPUT_DIR)/resume/resume-%.html: content/resume/resume-%.rst Makefile
 			$< $@
 
 $(OUTPUT_DIR)/resume/resume-%.pdf: content/resume/resume-%.rst $(RESUME_FONTS) Makefile
-	$(INSTALL) -d -m 0755 $(dir $@) && \
+	$(MKDIR) -p $(dir $@) && \
 		$(RST2PDF) --stylesheets=assets/resume/resume.style --font-path=assets/resume/fonts \
 			--language=$(shell echo $< | $(SED) -e 's,content/resume/resume-\([^.-]\+\)\.rst,\1,') \
 			--output=$@ $<
 
 clean:
-	rm -rf "$(OUTPUT_DIR)"
+	$(RM) -rf "$(OUTPUT_DIR)"
 
 .PHONY: all clean
