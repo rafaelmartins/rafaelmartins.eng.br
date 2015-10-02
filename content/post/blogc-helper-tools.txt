@@ -81,6 +81,6 @@ Some simple documentation is available at:
 #### Other tools
 
 I have more ideas of new tools, that I will probably explain in future posts,
-but if you have ideas of useful tools, please [let me know](/contact/).
+but if you have ideas of useful tools, please [let me know](/about/).
 
 Thanks.
