@@ -14,6 +14,7 @@ TAGS = \
 	$(NULL)
 
 POSTS = \
+	blogc-helper-tools \
 	blogc-a-blog-compiler \
 	hello-world \
 	$(NULL)
@@ -55,12 +56,15 @@ ASSETS = \
 # Arguments
 
 BLOGC ?= $(shell which blogc)
+BLOGC_RUNSERVER ?= $(shell which blogc-runserver)
 RST2HTML ?= $(shell which rst2html.py rst2html 2> /dev/null)
 RST2PDF ?= $(shell which rst2pdf)
 MKDIR ?= $(shell which mkdir)
 CP ?= $(shell which cp)
 SED ?= $(shell which sed)
-RM ?= $(shell which rm)
+
+BLOGC_RUNSERVER_HOST ?= 127.0.0.1
+BLOGC_RUNSERVER_PORT ?= 8080
 
 OUTPUT_DIR ?= _build
 BASE_DOMAIN ?= http://rafaelmartins.eng.br
@@ -200,7 +204,13 @@ $(OUTPUT_DIR)/resume/resume-%.pdf: content/resume/resume-%.rst $(RESUME_FONTS) M
 			--language=$(shell echo $< | $(SED) -e 's,content/resume/resume-\([^.-]\+\)\.rst,\1,') \
 			--output=$@ $<
 
+serve: all
+	$(BLOGC_RUNSERVER) \
+		-t $(BLOGC_RUNSERVER_HOST) \
+		-p $(BLOGC_RUNSERVER_PORT) \
+		$(OUTPUT_DIR)
+
 clean:
 	$(RM) -rf "$(OUTPUT_DIR)"
 
-.PHONY: all clean
+.PHONY: all serve clean

@@ -1,0 +1,86 @@
+TITLE: blogc: helper tools
+DATE: 2015-10-02 03:51:00
+TAGS: gentoo, blogc
+--------------------------
+While users may be able to use `blogc` as is with the help of generic tools,
+some of these tools are really boring to setup.
+
+With that in mind, I'm trying to develop some simple tools to help the users
+getting their blogs online. At this point I have two tools ready for usage:
+
+* [blogc-git-receiver](https://github.com/blogc/blogc-git-receiver)
+* [blogc-runserver](https://github.com/blogc/blogc-runserver)
+
+Packages are available for Gentoo, and in my [Copr
+repository](https://copr.fedoraproject.org/coprs/rafaelmartins/blogc) for
+RHEL/CentOS/Fedora.
+
+
+#### blogc-git-receiver
+
+```blogc-git-receiver``` is a login shell and a git pre-receive hook, that
+can create git repositories and build/deploy your websites automatically.
+Users just need to create an user, configure it to use
+```blogc-git-receiver``` as its login shell, then every time that some
+authorized user pushes to a repository it will create a local bare
+repository in the server, if needed, and if the push includes some change to
+the master branch, it will rebuild your website for you.
+
+```blogc-git-receiver``` tries to be as atomic as possible, building the new
+version of the website in a separate directory, and using a symlink to point
+to the most recent version of the website, removing the old version only
+after a successful new build.
+
+```blogc-git-receiver``` creates a symlink inside the bare git repository,
+called ```htdocs```, that points to the last successful build. Users just need
+to make their webservers use this symlink as document root for their virtual
+host, and make sure that the webserver can follow symlinks.
+
+With this tool, users can create their own PaaS-like environment, using a
+[cheap VPS](https://www.digitalocean.com/?refcode=80aa4a1d3a77) to host lots
+of blogs. ;-)
+
+This tool is one of the reasons why I wanted to make ```blogc``` as fast as
+possible, because it will rebuild all the website every time, not just the
+changes, for the sake of consistency.
+
+This tool is also a good sample code for people interested in understand how
+a login shell and a git hook works.
+
+Gentoo package is ```dev-vcs/blogc-git-receiver``` and RHEL/CentOS/Fedora
+package is ```blogc-git-receiver```.
+
+Some simple documentation is available at:
+[[https://github.com/blogc/blogc-git-receiver]]
+
+
+#### blogc-runserver
+
+```blogc-runserver``` is a simple HTTP server, that comes with several rules
+pre-defined, that tries to mimic the way most production servers work when
+serving static websites. Users just need to point ```blogc-runserver``` to the
+output directory where ```blogc``` created its result files.
+
+A simple ```Makefile``` rule is able to run your website for testing:
+
+    serve: all
+    	blogc-runserver $(OUTPUT_DIR)
+
+Yeah, it is really that simple! :)
+
+Please keep in mind that this server should not be used in production. It is
+really simple, and developed for testing purposes.
+
+Gentoo package is ```www-servers/blogc-runserver``` and RHEL/CentOS/Fedora
+package is ```blogc-runserver```.
+
+Some simple documentation is available at:
+[[https://github.com/blogc/blogc-runserver]]
+
+
+#### Other tools
+
+I have more ideas of new tools, that I will probably explain in future posts,
+but if you have ideas of useful tools, please [let me know](/contact/).
+
+Thanks.
