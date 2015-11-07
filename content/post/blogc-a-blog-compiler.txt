@@ -14,7 +14,7 @@ After a few beta versions, mainly to verify build system and packaging, I
 released the first "stable" version a few days ago, with some simple
 documentation (man pages) and all the features required for basic usage.
 
-This blog is powered by [blogc](http://blogc.org/), that is a blog compiler.
+This blog is powered by [blogc](https://blogc.rgm.io/), that is a blog compiler.
 It works like an usual source code compiler, converting input files written
 in a custom input language into a target file, based on a template. It can
 generate almost any resource file needed by a website/blog as target file,
@@ -81,7 +81,7 @@ I have plans to package it for Ubuntu/Debian, but this is low priority right
 now.
 
 Users without access to prebuilt packages can install blogc from source. Just
-visit [[http://blogc.org]], download a source tarball, extract it and build.
+visit [[https://blogc.rgm.io]], download a source tarball, extract it and build.
 It is an autotools project, that builds with the usual command combo:
 
     $ ./configure
@@ -91,12 +91,12 @@ It is an autotools project, that builds with the usual command combo:
 
 #### And how can I get started with blogc?
 
-The [website](http://blogc.org) contains lots of useful information.
+The [website](https://blogc.rgm.io) contains lots of useful information.
 
 With blogc installed, you can read man pages:
-[```blogc(1)```](http://blogc.org/man/blogc.1.html),
-[```blogc-source(7)```](http://blogc.org/man/blogc-source.7.html) and
-[```blogc-template(7)```](http://blogc.org/man/blogc-template.7.html). They
+[```blogc(1)```](https://blogc.rgm.io/man/blogc.1.html),
+[```blogc-source(7)```](https://blogc.rgm.io/man/blogc-source.7.html) and
+[```blogc-template(7)```](https://blogc.rgm.io/man/blogc-template.7.html). They
 are also available in the website.
 
 You can also use our [example website]

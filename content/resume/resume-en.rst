@@ -2,7 +2,7 @@ Rafael Gonçalves Martins
 ========================
 
 :Email: rafael@rafaelmartins.eng.br
-:Website: http://rafaelmartins.eng.br/
+:Website: https://rgm.io/
 :Location: São Paulo/SP, Brazil
 :Phone: 55-11-98719-3306
 
@@ -125,10 +125,10 @@ Writing, Projects, and Links
 ----------------------------
 - blohg_ - A mercurial-based blogging engine
 - g-octave_ - A tool that generates and installs ebuilds for Octave-Forge on Gentoo Linux
-- Blog about Free Software and Engineering at http://rafaelmartins.eng.br/
+- Blog about Free Software and Engineering at https://rgm.io/
 - Profiles: GitHub_, Linkedin_, Twitter_
-- Projects: Are at http://rafaelmartins.eng.br/projects/
-- Talks: Are at: http://rafaelmartins.eng.br/talks/
+- Projects: Are at https://rgm.io/projects/
+- Talks: Are at: https://rgm.io/talks/
 
 .. _blohg: http://blohg.org/
 .. _GitHub: https://github.com/rafaelmartins

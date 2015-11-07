@@ -67,7 +67,7 @@ BLOGC_RUNSERVER_HOST ?= 127.0.0.1
 BLOGC_RUNSERVER_PORT ?= 8080
 
 OUTPUT_DIR ?= _build
-BASE_DOMAIN ?= http://rafaelmartins.eng.br
+BASE_DOMAIN ?= https://rgm.io
 BASE_URL ?=
 
 DATE_FORMAT = "%b %d, %Y, %I:%M %p GMT"
