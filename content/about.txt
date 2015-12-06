@@ -12,8 +12,8 @@ I spend almost all my free time playing with open-source stuff. The main
 projects I'm working on are [Gentoo Linux](http://www.gentoo.org/),
 [balde](http://balde.io/) and [blogc](https://blogc.rgm.io/).
 
-On the personal-side, I'm a 27 years old guy, single, living at São Paulo/SP,
-Brazil.
+On the personal-side, I'm a 27 years old guy, single, living in Brno, Czech
+Republic.
 
 
 #### Contact

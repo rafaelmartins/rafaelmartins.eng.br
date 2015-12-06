@@ -3,8 +3,7 @@ Rafael Gonçalves Martins
 
 :Email: rafael@rafaelmartins.eng.br
 :Website: https://rgm.io/
-:Localização: São Paulo/SP, Brasil
-:Telefone: 11 98719-3306
+:Localização: Brno, República Tcheca
 
 
 Formação
