@@ -1,6 +1,10 @@
 TITLE: About
 ------------
+<div class="align-left">
+
 ![Rafael Martins](/assets/img/rafael.jpg)
+
+</div>
 
 My name is Rafael Goncalves Martins. I'm a Control and Automation engineer,
 programmer and open-source developer.

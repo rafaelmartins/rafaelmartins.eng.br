@@ -55,3 +55,10 @@ h4 {
 h5 {
     margin-top: 20px;
 }
+
+div.align-left {
+    clear: left ;
+    float: left ;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
