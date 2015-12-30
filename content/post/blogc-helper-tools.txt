@@ -1,6 +1,6 @@
 TITLE: blogc: helper tools
 DATE: 2015-10-02 03:51:00
-TAGS: gentoo, blogc
+TAGS: blogc gentoo
 --------------------------
 While users may be able to use `blogc` as is with the help of generic tools,
 some of these tools are really boring to setup.
