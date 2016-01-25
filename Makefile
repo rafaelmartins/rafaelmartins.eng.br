@@ -43,6 +43,7 @@ RESUME_FONTS = \
 
 ASSETS = \
 	assets/custom.css \
+	assets/fluid-width.js \
 	assets/img/creative-commons-88x31.png \
 	assets/img/rafael.jpg \
 	assets/resume/fonts/DroidSans-Bold.ttf \
